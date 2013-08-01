@@ -1,4 +1,11 @@
 Smdb::Application.routes.draw do
+  resources :directors
+
+  # CRUD out a director resource
+  # Directors should have a:
+  # name: string
+  # dob: date
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +46,7 @@ Smdb::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

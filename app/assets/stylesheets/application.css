@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+/* Director */
+
+.directors-table tr td {
+  font-size: 20px;
+}
+
+

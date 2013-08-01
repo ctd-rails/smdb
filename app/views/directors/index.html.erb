@@ -1,0 +1,29 @@
+<h1>Listing directors</h1>
+
+<table class="table directors-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Dob</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @directors.each do |director| %>
+      <tr>
+        <td><%= director.name %></td>
+        <td><%= director.dob %></td>
+        <td><%= link_to 'Show', director, :class => 'btn btn-default btn-small' %></td>
+        <td><%= link_to 'Edit', edit_director_path(director), :class => 'btn btn-warning btn-small' %></td>
+        <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-small' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Director', new_director_path, :class => 'btn btn-primary btn-large' %>
