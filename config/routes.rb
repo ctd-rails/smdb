@@ -1,4 +1,6 @@
 Smdb::Application.routes.draw do
+  resources :movies
+
   resources :directors
 
   # CRUD out a director resource
