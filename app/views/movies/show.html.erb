@@ -12,9 +12,19 @@
 
 <p>
   <strong>Director:</strong>
-  <%#= Director.find_by_name(@movie.director).name %>
   <%= @movie.director.name %>
 </p>
+
+<!-- Add a list of roles to this movie's show page -->
+<!-- make the list of roles also include the actor's name -->
+
+<h3>Cast</h3>
+<ul>
+  <% @movie.roles.each do |role| %>
+    <li><%= role.character_name %> played by <%= role.actor.name %></li>
+  <% end %>
+</ul>
+
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

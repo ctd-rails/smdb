@@ -1,8 +1,11 @@
 class Role < ActiveRecord::Base
-  # a role belongs to an actor
-  # write a method that returns this role's actor
+  belongs_to :actor
+  # def actor
+  #   Actor.find_by_id(self.actor_id)
+  # end
 
-  # a role belongs to a movie
-  # write a method that returns this role's movie
-
+  belongs_to :movie
+  # def movie
+  #   Movie.find_by_id(self.movie_id)
+  # end
 end
