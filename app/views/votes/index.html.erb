@@ -1,0 +1,29 @@
+<h1>Listing votes</h1>
+
+<table class="table content-table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Movie</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votes.each do |vote| %>
+      <tr>
+        <td><%= vote.user.name %></td>
+        <td><%= vote.movie.title %></td>
+        <td><%= link_to 'Show', vote, :class => 'btn btn-default btn-small' %></td>
+        <td><%= link_to 'Edit', edit_vote_path(vote), :class => 'btn btn-warning btn-small' %></td>
+        <td><%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-small' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vote', new_vote_path, :class => 'btn btn-primary btn-large' %>

@@ -1,0 +1,25 @@
+<%= form_for(@vote) do |f| %>
+  <% if @vote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
+
+      <ul>
+      <% @vote.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.select(:user_id, options_from_collection_for_select(User.all, :id, :name)) %>
+  </div>
+  <div class="field">
+    <%= f.label :movie_id %><br>
+    <%= f.select(:movie_id, options_from_collection_for_select(Movie.all, :id, :title)) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
