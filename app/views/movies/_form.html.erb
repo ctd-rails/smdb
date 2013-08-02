@@ -21,9 +21,28 @@
   </div>
   <div class="field">
     <%= f.label :director_id %><br>
-    <%= f.number_field :director_id %>
+    <!-- the select tag creates something like the commented out html -->
+    <%= f.select(:director_id, options_from_collection_for_select(Director.all, :id, :name)) %>
+    <!--   <div class="field">
+        <select name="director_id">
+          <option value="7">Christopher Nolan</option>
+          <option value="8">Francis Ford Coppola</option>
+          <option value="9">Frank Darabont</option>
+        </select>
+      </div> -->
   </div>
+
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
+
+
+
+

@@ -12,16 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :actor_id %><br>
-    <%= f.number_field :actor_id %>
-  </div>
-  <div class="field">
     <%= f.label :character_name %><br>
     <%= f.text_field :character_name %>
   </div>
+
+  <!-- change both of these to select_tags -->
+  <div class="field">
+    <%= f.label :actor_id %><br>
+    <%= f.select(:actor_id, options_from_collection_for_select(Actor.all, :id, :name)) %>
+  </div>
   <div class="field">
     <%= f.label :movie_id %><br>
-    <%= f.number_field :movie_id %>
+    <%= f.select(:movie_id, options_from_collection_for_select(Movie.all, :id, :title)) %>
   </div>
   <div class="actions">
     <%= f.submit %>
