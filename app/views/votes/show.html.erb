@@ -1,13 +1,17 @@
+<% if notice %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>User:</strong>
-  <%= @vote.user_id %>
+  <%= @vote.user.name %>
 </p>
 
 <p>
   <strong>Movie:</strong>
-  <%= @vote.movie_id %>
+  <%= @vote.movie.title %>
 </p>
 
 <%= link_to 'Edit', edit_vote_path(@vote) %> |

@@ -8,4 +8,8 @@ class Role < ActiveRecord::Base
   # def movie
   #   Movie.find_by_id(self.movie_id)
   # end
+
+  validates :character_name, :uniqueness => true
+  validates :character_name, :presence => true
+  validates :character_name, :format => { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
 end

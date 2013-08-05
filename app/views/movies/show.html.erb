@@ -15,9 +15,6 @@
   <%= @movie.director.name %>
 </p>
 
-<!-- Add a list of roles to this movie's show page -->
-<!-- make the list of roles also include the actor's name -->
-
 <h3>Cast</h3>
 <ul>
   <% @movie.roles.each do |role| %>
@@ -25,6 +22,25 @@
   <% end %>
 </ul>
 
+<h3>Users who voted for this movie</h3>
+<ul>
+  <% @movie.users.each do |user| %>
+    <li>
+      <%= link_to user.name, user_url(user.id)  %>
+    </li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
+
+
+
+
+
+
+
+
+
+
+
