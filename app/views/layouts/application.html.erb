@@ -15,7 +15,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to "SMDB", movies_url, :class => 'navbar-brand'  %>
+          <%= link_to "SMDB", root_url, :class => 'navbar-brand'  %>
           <div class="nav-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
               <li><%= link_to "Movies", movies_url  %></li>
@@ -25,6 +25,16 @@
               <li><%= link_to "Users", users_url  %></li>
               <li><%= link_to "Votes", votes_url  %></li>
             </ul>
+            <% if session[:username] %>
+              <ul class="nav navbar-nav pull-right">
+                <li><%= link_to "sign out", sign_out_url, method: 'delete' %></li>
+              </ul>
+              <p class="navbar-text pull-right">Signed in as <a href="#" class="navbar-link"><%= session[:username] %></a></p>
+            <% else %>
+              <ul class="nav navbar-nav pull-right">
+                <li><%= link_to "sign in", sign_in_url  %></li>
+              </ul>
+            <% end %>
           </div><!-- /.nav-collapse -->
         </div><!-- /.container -->
       </div><!-- /.navbar -->

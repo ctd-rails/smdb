@@ -1,6 +1,10 @@
 Smdb::Application.routes.draw do
   root "movies#index"
 
+  get '/signin' => 'sessions#new', :as => 'sign_in'
+  post '/sessions/create' => 'sessions#create'
+  delete '/signout' => 'sessions#destroy', :as => 'sign_out'
+
   resources :votes
 
   resources :users
