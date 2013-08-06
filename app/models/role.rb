@@ -11,5 +11,4 @@ class Role < ActiveRecord::Base
 
   validates :character_name, :uniqueness => true
   validates :character_name, :presence => true
-  validates :character_name, :format => { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
 end
