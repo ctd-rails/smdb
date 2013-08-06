@@ -1,4 +1,6 @@
 Smdb::Application.routes.draw do
+  root "movies#index"
+
   resources :votes
 
   resources :users
