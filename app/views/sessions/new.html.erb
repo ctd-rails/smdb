@@ -1,4 +1,6 @@
-<% if notice %>
+<% if notice.try(:downcase).try(:include?, 'invalid')  %>
+  <div class="alert alert-danger"><%= notice %></div>
+<% elsif notice %>
   <div class="alert alert-success"><%= notice %></div>
 <% end %>
 
