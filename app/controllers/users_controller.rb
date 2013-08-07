@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -62,6 +63,15 @@ class UsersController < ApplicationController
   end
 
   private
+    # kick out any unauthorized users
+    def authorize_user
+      # if the user's name is the same as the session name, then allow the user to sign-in
+      if params[:id] != session[:user_id]
+      # otherwise redirect the user back to the movies index page
+        redirect_to root_url, notice: 'Invalid request, nice try'
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -72,3 +82,9 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :password, :password_confirmation)
     end
 end
+
+
+
+
+
+
