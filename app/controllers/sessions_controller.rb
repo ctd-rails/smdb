@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       session[:username] = params[:name]
       redirect_to root_url, notice: "successfully signed in as #{session[:username]}"
     else
-      redirect_to sign_in_url, notice: "<i></i>nvalid username"
+      redirect_to sign_in_url, notice: "invalid username"
     end
 
   end
